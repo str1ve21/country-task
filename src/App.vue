@@ -1,13 +1,13 @@
 <template>
-  <main>
-    
-  </main>
+  <main class="hewwo"></main>
 </template>
 
-<script setup>
+<script setup></script>
 
-</script>
-
-<style scoped>
-
+<style scoped lang="scss">
+.hewwo {
+  width: 100px;
+  height: 100px;
+  background: #00ff00;
+}
 </style>
