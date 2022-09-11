@@ -1,13 +1,13 @@
 <template>
-  <main class="hewwo"></main>
+  <AppHeaderVue />
+  <main>
+    <AppWelcome />
+  </main>
 </template>
 
-<script setup></script>
+<script setup>
+import AppWelcome from "./components/AppWelcome.vue";
+import AppHeaderVue from "./components/AppHeader.vue";
+</script>
 
-<style scoped lang="scss">
-.hewwo {
-  width: 100px;
-  height: 100px;
-  background: #00ff00;
-}
-</style>
+<style scoped lang="scss"></style>
