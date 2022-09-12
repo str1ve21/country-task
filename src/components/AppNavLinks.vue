@@ -54,6 +54,7 @@ section {
   grid-template-columns: repeat(3, minmax(max-content, 1fr));
   gap: 25px;
   padding: 50px;
+  font-family: "Nunito Sans", sans-serif;
 }
 .link-item {
   display: flex;
@@ -61,12 +62,11 @@ section {
   justify-content: space-between;
   border-top: 2px solid #b9b9b9;
   padding: 25px 0;
-  font-family: "Nunito Sans", sans-serif;
   font-size: 25px;
-}
-
-.link-item svg {
-  height: 15px;
-  stroke: #1e5aaf;
+  cursor: pointer;
+  svg {
+    height: 15px;
+    stroke: #1e5aaf;
+  }
 }
 </style>

@@ -47,21 +47,20 @@ section {
 
 .content {
   position: absolute;
+  min-width: 1000px;
   width: 50vw;
   padding: 80px 50px;
   font-family: "Nunito Sans", sans-serif;
   color: #e9e9e9;
   z-index: 10;
-}
-
-.content h1 {
-  font-size: 100px;
-  letter-spacing: 5px;
-}
-
-.content a {
-  color: #e9e9e9;
-  font-size: 40px;
-  text-decoration: none;
+  h1 {
+    font-size: 100px;
+    letter-spacing: 5px;
+  }
+  a {
+    color: #e9e9e9;
+    font-size: 40px;
+    text-decoration: none;
+  }
 }
 </style>

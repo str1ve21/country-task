@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header @mouseenter="addWhiteTheme()" @mouseleave="removeWhiteTheme()">
     <svg
       width="145"
       height="40"
@@ -25,34 +25,52 @@
 </template>
 
 <script setup>
+import { onMounted } from "vue";
+import { throttle } from "throttle-debounce";
 import HeaderMenuVue from "./Header/HeaderMenu.vue";
 import HeaderButtonsVue from "./Header/HeaderButtons.vue";
+function addWhiteTheme() {
+  document.querySelector("header").classList.add("white-header-theme");
+}
+function removeWhiteTheme() {
+  if (window.scrollY > 100) return;
+  document.querySelector("header").classList.remove("white-header-theme");
+}
+onMounted(() => {
+  window.addEventListener(
+    "scroll",
+    throttle(200, () => {
+      if (window.scrollY > 100) {
+        addWhiteTheme();
+      } else {
+        removeWhiteTheme();
+      }
+    })
+  );
+});
 </script>
 
 <style lang="scss">
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
   padding: 0 50px;
-  z-index: 10;
+  z-index: 100;
   transition: ease-in-out 200ms;
+  .logo-svg {
+    transition: ease-in-out 200ms;
+  }
 }
 
-.logo-svg {
-  transition: ease-in-out 200ms;
-}
-
-header:hover {
+.white-header-theme {
   background: #e9e9e9;
   transition: ease-in-out 200ms;
-}
-
-header:hover {
   .logo-svg {
     fill: #1e5aaf;
     transition: ease-in-out 200ms;
