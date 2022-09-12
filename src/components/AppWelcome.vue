@@ -29,11 +29,11 @@
 <style lang="scss" scoped>
 section {
   position: relative;
-  top: -100px;
+  top: 0;
   left: 0;
   display: flex;
   align-items: flex-end;
-  width: 100vw;
+  max-width: 100vw;
 }
 
 #welcome-bg {

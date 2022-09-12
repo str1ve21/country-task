@@ -57,8 +57,9 @@ header:hover {
     fill: #1e5aaf;
     transition: ease-in-out 200ms;
   }
-  .menu {
+  .menu-info {
     color: #151515;
+    transition: ease-in-out 200ms;
   }
   .menu svg {
     stroke: #151515;
