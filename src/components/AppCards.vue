@@ -57,10 +57,9 @@ section {
 
 .card {
   position: relative;
-  height: 400px;
+  min-height: 400px;
   width: 20vw;
-  min-width: 300px;
-  padding: 25px;
+  padding: 25px 25px 125px 25px;
   background: #1e5aaf;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(6, 31, 67, 0.3);
@@ -70,6 +69,7 @@ section {
   h3 {
     font-size: 35px;
     color: #e9e9e9;
+    word-break: break-all;
     margin-bottom: 15px;
   }
   p {
