@@ -45,7 +45,7 @@ const navLinksArray = [
     id: 6,
     text: "Рег. удостоверение",
   },
-]
+];
 </script>
 
 <style lang="scss" scoped>
