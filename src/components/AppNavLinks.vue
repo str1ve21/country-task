@@ -55,18 +55,20 @@ section {
   gap: 25px;
   padding: 50px;
   font-family: "Nunito Sans", sans-serif;
-}
-.link-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 2px solid #b9b9b9;
-  padding: 25px 0;
-  font-size: 25px;
-  cursor: pointer;
-  svg {
-    height: 15px;
-    stroke: #1e5aaf;
+
+  .link-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 2px solid #b9b9b9;
+    padding: 25px 0;
+    font-size: 25px;
+    cursor: pointer;
+
+    svg {
+      height: 15px;
+      stroke: #1e5aaf;
+    }
   }
 }
 </style>

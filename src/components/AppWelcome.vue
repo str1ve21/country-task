@@ -34,33 +34,35 @@ section {
   display: flex;
   align-items: flex-end;
   max-width: 100vw;
-}
 
-#welcome-bg {
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 75vh;
-  width: 100%;
-  object-fit: cover;
-}
-
-.content {
-  position: absolute;
-  min-width: 1000px;
-  width: 50vw;
-  padding: 80px 50px;
-  font-family: "Nunito Sans", sans-serif;
-  color: #e9e9e9;
-  z-index: 10;
-  h1 {
-    font-size: 100px;
-    letter-spacing: 5px;
-  }
-  a {
+  .content {
+    position: absolute;
+    min-width: 1000px;
+    width: 50vw;
+    padding: 80px 50px;
+    font-family: "Nunito Sans", sans-serif;
     color: #e9e9e9;
-    font-size: 40px;
-    text-decoration: none;
+    z-index: 10;
+
+    h1 {
+      font-size: 100px;
+      letter-spacing: 5px;
+    }
+
+    a {
+      color: #e9e9e9;
+      font-size: 40px;
+      text-decoration: none;
+    }
+  }
+
+  #welcome-bg {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 75vh;
+    width: 100%;
+    object-fit: cover;
   }
 }
 </style>

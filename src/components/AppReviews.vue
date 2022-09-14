@@ -37,7 +37,7 @@
       <a href="#">Мнения специалистов</a>
     </div>
     <div id="slider">
-      <div class="review-card">
+      <div class="review-card" id="item-0">
         <img src="../assets/avatar.png" alt="Person avatar" />
         <h3>Эдди морро</h3>
         <p class="about-person">
@@ -67,7 +67,7 @@
           <div class="card-gradient"></div>
         </a>
       </div>
-      <div class="review-card">
+      <div class="review-card" id="item-1">
         <img src="../assets/avatar.png" alt="Person avatar" />
         <h3>Эдди морро</h3>
         <p class="about-person">
@@ -104,17 +104,27 @@
 <script setup>
 import { onMounted, ref } from "vue";
 let reviewsCounter = ref(0);
+function sliderLogic(propElement) {
+  propElement.childNodes.forEach((child) => {
+    if (child === propElement.children[`item-${reviewsCounter.value}`]) {
+      child.style.background = "#1e5aaf";
+    } else {
+      child.style.background = "#0f3974";
+    }
+  });
+  propElement.scrollTo({
+    top: 0,
+    left: propElement.clientWidth * reviewsCounter.value,
+    behavior: "smooth",
+  });
+}
 function nextGallerySlide(elem) {
   --reviewsCounter.value;
   const element = document.querySelector(elem);
   if (reviewsCounter.value < 0) {
     reviewsCounter.value = element.childElementCount - 1;
   }
-  element.scrollTo({
-    top: 0,
-    left: element.clientWidth * reviewsCounter.value,
-    behavior: "smooth",
-  });
+  sliderLogic(element);
 }
 function beforeGallerySlide(elem) {
   ++reviewsCounter.value;
@@ -122,13 +132,12 @@ function beforeGallerySlide(elem) {
   if (reviewsCounter.value + 1 > element.childElementCount) {
     reviewsCounter.value = 0;
   }
-  element.scrollTo({
-    top: 0,
-    left: element.clientWidth * reviewsCounter.value,
-    behavior: "smooth",
-  });
+  sliderLogic(element);
 }
 onMounted(() => {
+  document.querySelector("#slider").children[
+    `item-${reviewsCounter.value}`
+  ].style.background = "#1e5aaf";
   setInterval(() => {
     nextGallerySlide("#slider");
   }, 7500);
@@ -140,6 +149,7 @@ section {
   padding: 50px;
   margin-bottom: 50px;
   font-family: "Nunito Sans", sans-serif;
+
   h2 {
     width: 60vw;
     font-size: 50px;
@@ -152,17 +162,20 @@ section {
     align-items: center;
     gap: 20px;
     margin-bottom: 20px;
+
     #nextButtonReviews,
     #beforeButtonReviews {
       height: 30px;
       stroke: #1e5aaf;
       cursor: pointer;
     }
+
     a {
       margin-left: auto;
       color: #1e5aaf;
     }
   }
+
   #slider {
     display: flex;
     flex-direction: row;
@@ -180,11 +193,13 @@ section {
     height: 600px;
     min-width: 50vw;
     padding: 50px 100px;
-    background: #1e5aaf;
+    background: #0f3974;
     border-radius: 10px;
     overflow: hidden;
     isolation: isolate;
     scroll-snap-align: start;
+    transition: ease-in-out 200ms;
+
     img {
       position: absolute;
       top: 50px;
@@ -192,6 +207,7 @@ section {
       height: 150px;
       object-fit: cover;
     }
+
     h3 {
       width: min-content;
       margin-bottom: 15px;
@@ -199,28 +215,33 @@ section {
       font-size: 30px;
       color: #e9e9e9;
     }
+
     .about-person {
       width: 70%;
       font-size: 20px;
       color: #557eb8;
       margin-bottom: 50px;
     }
+
     .card-text {
       width: 80%;
       font-size: 35px;
       color: #e9e9e9;
       margin-bottom: auto;
     }
+
     a {
       display: flex;
       align-items: center;
       justify-content: space-between;
       font-size: 20px;
       color: #e9e9e9;
+
       svg {
         height: 20px;
       }
     }
+
     .card-gradient {
       position: absolute;
       top: 0;
@@ -233,6 +254,7 @@ section {
       transition: ease-in-out 200ms;
     }
   }
+
   .review-card:hover .card-gradient {
     opacity: 1;
     transition: ease-in-out 200ms;

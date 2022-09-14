@@ -64,28 +64,23 @@
 
 <script setup>
 import { ref } from "vue";
-
+function toggleLogic(clickedElement, elementToggle, propElemId) {
+  const clickedElementSelector = document.querySelectorAll(
+    `.${clickedElement}`
+  );
+  clickedElementSelector.forEach((nodeItem) => {
+    if (nodeItem.classList.contains(`${clickedElement}-${propElemId}`)) {
+      document
+        .querySelector(`.${clickedElement}-${propElemId}`)
+        .classList.toggle(elementToggle);
+    } else {
+      nodeItem.classList.remove(elementToggle);
+    }
+  });
+}
 function toggleMenu(elemId) {
-  const visibleMenu = document.querySelectorAll(".link-menu");
-  visibleMenu.forEach((nodeItem) => {
-    if (nodeItem.classList.contains(`link-menu-${elemId}`)) {
-      document
-        .querySelector(`.link-menu-${elemId}`)
-        .classList.toggle("link-menu-visible");
-    } else {
-      nodeItem.classList.remove("link-menu-visible");
-    }
-  });
-  const rotatedSvg = document.querySelectorAll(".item-svg");
-  rotatedSvg.forEach((nodeItem) => {
-    if (nodeItem.classList.contains(`item-svg-${elemId}`)) {
-      document
-        .querySelector(`.item-svg-${elemId}`)
-        .classList.toggle("item-svg-rotated");
-    } else {
-      nodeItem.classList.remove("item-svg-rotated");
-    }
-  });
+  toggleLogic("link-menu", "link-menu-visible", elemId);
+  toggleLogic("item-svg", "item-svg-rotated", elemId);
 }
 
 const menuItems = ref([
@@ -185,12 +180,14 @@ const linkMenuItems = [
   visibility: hidden;
   opacity: 0;
   transition: ease-in-out 200ms;
+
   .link-menu-layout {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: auto;
     height: 100%;
     padding: 50px;
+
     a {
       font-size: 20px;
       color: #151515;

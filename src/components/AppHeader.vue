@@ -63,6 +63,7 @@ header {
   padding: 0 50px;
   z-index: 100;
   transition: ease-in-out 200ms;
+
   .logo-svg {
     transition: ease-in-out 200ms;
   }
@@ -71,22 +72,27 @@ header {
 .white-header-theme {
   background: #e9e9e9;
   transition: ease-in-out 200ms;
+
   .logo-svg {
     fill: #1e5aaf;
     transition: ease-in-out 200ms;
   }
+
   .menu-info {
     color: #151515;
     transition: ease-in-out 200ms;
   }
+
   .menu svg {
     stroke: #151515;
     transition: ease-in-out 200ms;
   }
+
   #buttons-original {
     color: #df0050;
     transition: ease-in-out 200ms;
   }
+
   #buttons-buy {
     background: #0f57be;
     border: 3px solid #0f57be;

@@ -20,19 +20,23 @@ footer {
   padding: 50px;
   background: #051a2c;
   font-family: "Nunito Sans", sans-serif;
+
   h2 {
     width: 20vw;
     font-size: 30px;
     color: #e9e9e9;
     margin-bottom: auto;
   }
+
   .info {
     display: flex;
     gap: 50px;
     color: #8c8d98;
+
     p {
       font-size: 15px;
     }
+
     :last-child {
       margin-left: auto;
     }

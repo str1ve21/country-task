@@ -130,81 +130,94 @@ onMounted(() => {
 section {
   padding: 50px;
   font-family: "Nunito Sans", sans-serif;
-}
 
-.control-buttons {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
-  #nextButtonGallery,
-  #beforeButtonGallery {
-    height: 30px;
-    stroke: #1e5aaf;
-    cursor: pointer;
-  }
-}
-
-#gallery {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  gap: 50px;
-  overflow: hidden;
-  border-radius: 10px;
-  scroll-snap-type: x mandatory;
-  .image {
+  .control-buttons {
     display: flex;
-    min-width: 100%;
-    height: 600px;
-    overflow: hidden;
-    scroll-snap-align: center;
-    img {
-      width: 70%;
-      object-fit: cover;
-      object-position: center;
+    gap: 20px;
+    margin-bottom: 20px;
+
+    #nextButtonGallery,
+    #beforeButtonGallery {
+      height: 30px;
+      stroke: #1e5aaf;
+      cursor: pointer;
     }
-    .card {
-      position: relative;
-      width: 30%;
-      padding: 50px;
-      background: #1e5aaf;
-      isolation: isolate;
-      h3 {
-        font-size: 35px;
-        font-weight: 400;
-        color: #e9e9e9;
-        margin-bottom: 15px;
+  }
+
+  #gallery {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 50px;
+    overflow: hidden;
+    border-radius: 10px;
+    scroll-snap-type: x mandatory;
+
+    .image {
+      display: flex;
+      min-width: 100%;
+      height: 600px;
+      overflow: hidden;
+      scroll-snap-align: center;
+
+      img {
+        width: 70%;
+        object-fit: cover;
+        object-position: center;
       }
-      p {
-        font-size: 20px;
-        font-weight: 400;
-        color: #8ea9d0;
-        margin-bottom: 15px;
-      }
-      a {
-        font-size: 20px;
-        font-weight: 600;
-        color: #e9e9e9;
-        svg {
-          height: 15px;
+
+      .card {
+        position: relative;
+        width: 30%;
+        padding: 50px;
+        background: #1e5aaf;
+        isolation: isolate;
+
+        h3 {
+          font-size: 35px;
+          font-weight: 400;
+          color: #e9e9e9;
+          margin-bottom: 15px;
+        }
+
+        p {
+          font-size: 20px;
+          font-weight: 400;
+          color: #8ea9d0;
+          margin-bottom: 15px;
+        }
+
+        a {
+          font-size: 20px;
+          font-weight: 600;
+          color: #e9e9e9;
+          svg {
+            height: 15px;
+          }
+        }
+
+        .card-gradient {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background: linear-gradient(
+            0deg,
+            transparent 0%,
+            rgb(9, 46, 98) 100%
+          );
+          opacity: 0;
+          z-index: -1;
+          transition: ease-in-out 200ms;
         }
       }
-      .card-gradient {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background: linear-gradient(0deg, transparent 0%, rgb(9, 46, 98) 100%);
-        opacity: 0;
-        z-index: -1;
-        transition: ease-in-out 200ms;
-      }
     }
-  }
-  .image:hover .card-gradient {
-    opacity: 1;
-    transition: ease-in-out 200ms;
+
+    .image:hover .card-gradient {
+      opacity: 1;
+      transition: ease-in-out 200ms;
+    }
   }
 }
 </style>

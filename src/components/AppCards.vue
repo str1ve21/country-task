@@ -53,52 +53,55 @@ section {
   padding: 50px;
   margin-bottom: 50px;
   font-family: "Nunito Sans", sans-serif;
-}
 
-.card {
-  position: relative;
-  min-height: 400px;
-  width: 20vw;
-  padding: 25px 25px 125px 25px;
-  background: #1e5aaf;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(6, 31, 67, 0.3);
-  overflow: hidden;
-  isolation: isolate;
-  cursor: pointer;
-  h3 {
-    font-size: 35px;
-    color: #e9e9e9;
-    word-break: break-all;
-    margin-bottom: 15px;
+  .card {
+    position: relative;
+    min-height: 400px;
+    width: 20vw;
+    padding: 25px 25px 125px 25px;
+    background: #1e5aaf;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(6, 31, 67, 0.3);
+    overflow: hidden;
+    isolation: isolate;
+    cursor: pointer;
+
+    h3 {
+      font-size: 35px;
+      color: #e9e9e9;
+      word-break: break-all;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 20px;
+      color: #c0c0c0;
+    }
+
+    svg {
+      position: absolute;
+      height: 30px;
+      right: 50px;
+      bottom: 50px;
+      color: #e9e9e9;
+    }
   }
-  p {
-    font-size: 20px;
-    color: #c0c0c0;
+
+  .card:hover .card-gradient {
+    opacity: 1;
+    transition: ease-in-out 200ms;
   }
-  svg {
+
+  .card-gradient {
     position: absolute;
-    height: 30px;
-    right: 50px;
-    bottom: 50px;
-    color: #e9e9e9;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(0deg, transparent 0%, rgb(9, 46, 98) 100%);
+    opacity: 0;
+    z-index: -1;
+    transition: ease-in-out 200ms;
   }
-}
-
-.card:hover .card-gradient {
-  opacity: 1;
-  transition: ease-in-out 200ms;
-}
-
-.card-gradient {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(0deg, transparent 0%, rgb(9, 46, 98) 100%);
-  opacity: 0;
-  z-index: -1;
-  transition: ease-in-out 200ms;
 }
 </style>
