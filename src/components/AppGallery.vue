@@ -94,31 +94,35 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
+
 let galleryCounetr = ref(0);
+
+function galleryLogic(propElement) {
+  propElement.scrollTo({
+    top: 0,
+    left: propElement.clientWidth * galleryCounetr.value,
+    behavior: "smooth",
+  });
+}
+
 function nextGallerySlide(elem) {
   --galleryCounetr.value;
   const element = document.querySelector(elem);
   if (galleryCounetr.value < 0) {
     galleryCounetr.value = element.childElementCount - 1;
   }
-  element.scrollTo({
-    top: 0,
-    left: element.clientWidth * galleryCounetr.value,
-    behavior: "smooth",
-  });
+  galleryLogic(element);
 }
+
 function beforeGallerySlide(elem) {
   ++galleryCounetr.value;
   const element = document.querySelector(elem);
   if (galleryCounetr.value + 1 > element.childElementCount) {
     galleryCounetr.value = 0;
   }
-  element.scrollTo({
-    top: 0,
-    left: element.clientWidth * galleryCounetr.value,
-    behavior: "smooth",
-  });
+  galleryLogic(element);
 }
+
 onMounted(() => {
   setInterval(() => {
     nextGallerySlide("#gallery");

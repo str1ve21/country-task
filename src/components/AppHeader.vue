@@ -27,15 +27,19 @@
 <script setup>
 import { onMounted } from "vue";
 import { throttle } from "throttle-debounce";
+
 import HeaderMenuVue from "./Header/HeaderMenu.vue";
 import HeaderButtonsVue from "./Header/HeaderButtons.vue";
+
 function addWhiteTheme() {
   document.querySelector("header").classList.add("white-header-theme");
 }
+
 function removeWhiteTheme() {
   if (window.scrollY > 100) return;
   document.querySelector("header").classList.remove("white-header-theme");
 }
+
 onMounted(() => {
   window.addEventListener(
     "scroll",

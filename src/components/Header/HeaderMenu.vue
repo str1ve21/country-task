@@ -64,6 +64,7 @@
 
 <script setup>
 import { ref } from "vue";
+
 function toggleLogic(clickedElement, elementToggle, propElemId) {
   const clickedElementSelector = document.querySelectorAll(
     `.${clickedElement}`
@@ -78,6 +79,7 @@ function toggleLogic(clickedElement, elementToggle, propElemId) {
     }
   });
 }
+
 function toggleMenu(elemId) {
   toggleLogic("link-menu", "link-menu-visible", elemId);
   toggleLogic("item-svg", "item-svg-rotated", elemId);
@@ -110,6 +112,7 @@ const menuItems = ref([
     isSvg: false,
   },
 ]);
+
 const linkMenuItems = [
   [
     "Материалы для изучения",

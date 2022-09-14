@@ -103,7 +103,9 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
+
 let reviewsCounter = ref(0);
+
 function sliderLogic(propElement) {
   propElement.childNodes.forEach((child) => {
     if (child === propElement.children[`item-${reviewsCounter.value}`]) {
@@ -118,6 +120,7 @@ function sliderLogic(propElement) {
     behavior: "smooth",
   });
 }
+
 function nextGallerySlide(elem) {
   --reviewsCounter.value;
   const element = document.querySelector(elem);
@@ -126,6 +129,7 @@ function nextGallerySlide(elem) {
   }
   sliderLogic(element);
 }
+
 function beforeGallerySlide(elem) {
   ++reviewsCounter.value;
   const element = document.querySelector(elem);
@@ -134,10 +138,12 @@ function beforeGallerySlide(elem) {
   }
   sliderLogic(element);
 }
+
 onMounted(() => {
   document.querySelector("#slider").children[
     `item-${reviewsCounter.value}`
   ].style.background = "#1e5aaf";
+
   setInterval(() => {
     nextGallerySlide("#slider");
   }, 7500);
